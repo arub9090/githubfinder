@@ -1,11 +1,13 @@
+import UserResults from "../users/UserResults"
+import UserSearch from "../users/UserSearch";
+
 function Home() {
     return (
-        <div className="text-6xl">
-            <p>Welcome to Github Finder</p>
-            {process.env.REACT_APP_GITHUB_KEY}
-
-        </div>
+        <>
+            <UserSearch />
+            <UserResults />
+        </>
     )
 }
 
-export default Home
+export default Home;
