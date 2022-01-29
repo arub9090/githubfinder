@@ -3,14 +3,13 @@ import {useState, useContext} from 'react';
 import GithubContext from '../../context/github/GithubContext';
 import AlertContext from '../../context/alert/AlertContext';
 import {searchUsers} from '../../context/github/GithubActions';
-/* import UniAlertContext from '../../context/universalAlert/UniAlertContext'; */
+
 
 function UserSearch() {
 
     const [text, setText] = useState('');
     const {users, dispatch} = useContext(GithubContext);
     const {setAlert} = useContext(AlertContext);
-    /* const {setUniAlert} = useContext(UniAlertContext); */
 
     const handleChange = (e)=>{
         setText(e.target.value)
@@ -20,8 +19,6 @@ function UserSearch() {
 
         if (text === ''){
            setAlert("Please Type Something", 'error');
-          /*  setUniAlert('This Must not Be Blank', 'error') */
-
         }else{
           dispatch({type: 'IS_LOADING'})
            const users= await searchUsers(text);
